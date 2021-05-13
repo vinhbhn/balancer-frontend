@@ -1,0 +1,38 @@
+{
+  "network": "mumbai",
+  "chainId": 80001,
+  "precision": 6,
+  "infuraKey": "237c3102f39b4940abbe12dc49165cd6",
+  "alchemyKey": "cQGZUiTLRCFsQS7kbRxPJK4eH4fTTu88",
+  "subgraphUrl": "https://api.thegraph.com/subgraphs/name/vinhbhn/balancer-mumbai",
+  "subgraphBackupUrl": "https://ipfs.fleek.co/ipns/balancer-bucket.storage.fleek.co/balancer-exchange-mumbai/pools",
+  "addresses": {
+    "bFactory": "0x43F1400cbb9391665eA91CdD657CC54BED31CE49",
+    "bActions": "0x298A96a1240006666CD94A442Dc4001e320F4181",
+    "dsProxyRegistry": "0x3bdDf80e2B82bAdf86C5973CEDE32A924E8A9d49",
+    "exchangeProxy": "0x601662D2D3F85555807732b5c2B1be7f48BF8516",
+    "weth": "0xd84b3E88ca7c7c14E925539EBd4ce9c27b6916De",
+    "multicall": "0x32f24c6c74865c7672242548976466eA3160d2f9"
+  },
+  "connectors": {
+    "injected": {},
+    "walletconnect": {
+      "rpc": {
+        "80001": "https://matic-mumbai.chainstacklabs.com"
+      }
+    },
+    "portis": {
+      "network": "mumbai",
+      "dappId": "3f1c3cfc-7dd5-4e8a-aa03-71ff7396d9fe"
+    },
+    "walletlink": {
+      "appName": "Balancer Exchange",
+      "darkMode": true,
+      "chainId": 80001,
+      "ethJsonrpcUrl": "https://matic-mumbai.chainstacklabs.com"
+    },
+    "fortmatic": {
+      "apiKey": "pk_live_9CE8FD92E54684ED"
+    }
+  }
+}
