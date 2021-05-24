@@ -1,6 +1,6 @@
 import homestead from './homestead.json';
 import kovan from './kovan.json';
-import mumbai from './mumbai.json'
+import mumbai from './mumbai.json';
 
 interface Connector {
     id: string;
@@ -49,7 +49,7 @@ const configs = {
     80001: {
         untrusted: [],
         ...mumbai,
-    }
+    },
 };
 // eslint-disable-next-line no-undef
 const network = process.env.APP_CHAIN_ID || 1;

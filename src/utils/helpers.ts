@@ -28,7 +28,7 @@ export function formatDate(timestamp: number): string {
         minute: 'numeric',
     };
     const date = new Date(timestamp);
-    return date.toLocaleString('en-US', options);
+    return date.toLocaleString('en-US', options as any);
 }
 
 export function isAddress(value: string): boolean {
@@ -50,15 +50,19 @@ export function sleep(ms: number): Promise<void> {
     return new Promise(resolve => setTimeout(() => resolve(), ms));
 }
 
-export function getEtherscanLink(txHash: string): string {
+export function getExplorerLink(txHash: string): string {
     const chainId = config.chainId;
     const prefixMap = {
         1: '',
         42: 'kovan.',
+        80001: 'mumbai',
+        137: 'mainnet', // polygon mainnet
     };
     const prefix = prefixMap[chainId];
-    const link = `https://${prefix}etherscan.io/tx/${txHash}`;
-    return link;
+    if (chainId == 80001 || chainId == 137) {
+        return `https://explorer-${prefix}.maticvigil.com/tx/${txHash}`;
+    }
+    return `https://${prefix}etherscan.io/tx/${txHash}`;
 }
 
 export function getAccountLink(address: string): string {
@@ -66,10 +70,14 @@ export function getAccountLink(address: string): string {
     const prefixMap = {
         1: '',
         42: 'kovan.',
+        80001: 'mumbai',
+        137: 'mainnet', // polygon mainnet
     };
     const prefix = prefixMap[chainId];
-    const link = `https://${prefix}etherscan.io/address/${address}`;
-    return link;
+    if (chainId == 80001 || chainId == 137) {
+        return `https://explorer-${prefix}.maticvigil.com/address/${address}`;
+    }
+    return `https://${prefix}etherscan.io/address/${address}`;
 }
 
 export function getPoolLink(pool: string): string {
@@ -77,6 +85,8 @@ export function getPoolLink(pool: string): string {
     const prefixMap = {
         1: '',
         42: 'kovan.',
+        80001: 'mumbai.',
+        137: 'polygon.', 
     };
     const prefix = prefixMap[chainId];
     const link = `https://${prefix}pools.balancer.exchange/#/pool/${pool}`;
