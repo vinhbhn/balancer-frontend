@@ -68,7 +68,7 @@ import { Swap, Pool } from '@balancer-labs/sor/dist/types';
 
 import config from '@/config';
 import provider from '@/utils/provider';
-import { ETH_KEY, scale, isAddress, getEtherscanLink } from '@/utils/helpers';
+import { ETH_KEY, scale, isAddress, getExplorerLink } from '@/utils/helpers';
 import { ValidationError, SwapValidation, validateNumberInput } from '@/utils/validation';
 import Storage from '@/utils/storage';
 import Swapper from '@/web3/swapper';
@@ -446,7 +446,7 @@ export default defineComponent({
             const type = transactionReceipt.status === 1
                 ? 'success'
                 : 'error';
-            const link = getEtherscanLink(transactionReceipt.transactionHash);
+            const link = getExplorerLink(transactionReceipt.transactionHash);
             store.dispatch('ui/notify', {
                 text,
                 type,
